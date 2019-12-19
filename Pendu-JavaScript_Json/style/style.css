@@ -1,0 +1,463 @@
+@charset "UTF-8";
+
+#p1 {
+	position: absolute;
+    left: 350px;
+    top: 662px;
+    visibility: hidden;
+	
+}
+
+#p2 {
+	position: absolute;
+    left: 350px;
+    top: 175px;
+	visibility: hidden;
+}
+
+#p3 {
+	position: absolute;
+    left: 350px;
+    top: 170px;
+    visibility: hidden;
+}
+
+#p4 {
+	position: absolute;
+    left: 350px;
+    top: 175px;
+    visibility: hidden;
+}
+
+#p5 {
+	position: absolute;
+    left: 653px;
+    top: 175px;
+    visibility: hidden;
+}
+
+#p6 {
+	position: absolute;
+    left: 598px;
+    top: 233px;
+    visibility: hidden;
+}
+
+#p7 {
+	position: absolute;
+    left: 653px;
+    top: 345px;
+    visibility: hidden;
+}
+
+#p8 {
+	position: absolute;
+    left: 601px;
+    top: 371px;
+    visibility: hidden;
+}
+
+#p9 {
+	position: absolute;
+    left: 653px;
+    top: 372px;
+    visibility: hidden;
+}
+
+#p10 {
+	position: absolute;
+    left: 601px;
+    top: 524px;
+    visibility: hidden;
+}
+
+#p11 {
+	position: absolute;
+    left: 653px;
+    top: 524px;
+    visibility: hidden;
+}
+
+#pendu {
+	position: absolute;
+    left: -300px;
+    top: -5px;
+}
+
+#cadre {
+	position: absolute;
+    left: 54%;
+    top: 14%;
+    box-shadow: 0px 0px 20px 10px grey;
+    
+}
+
+#A {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 55%;
+    top: 15%;
+    display: block;
+	
+}
+
+#B {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 61%;
+    top: 15%;
+    display: block;
+	
+}
+
+#C {
+	position: absolute;
+    left: 67%;
+    top: 15%;
+    width: 5%;
+    height: 8%;
+    display: block;
+	
+}
+
+#D {
+	position: absolute;
+    left: 73%;
+    top: 15%;
+    width: 5%;
+    height: 8%;
+    display: block;
+	
+}
+
+#E {
+	position: absolute;
+    left: 79%;
+    top: 15%;
+    width: 5%;
+    height: 8%;
+	
+}
+
+#F {
+	position: absolute;
+    left: 85%;
+    top: 15%;
+    width: 5%;
+    height: 8%;
+	
+}
+#G {
+	position: absolute;
+    left: 91%;
+    top: 15%;
+    width: 5%;
+    height: 8%;
+	
+}
+
+
+#H {
+	    position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 55%;
+    top: 25%;
+    display: block;
+	
+}
+
+#I {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 61%;
+    top: 25%;
+    display: block;
+	
+}
+
+#J {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 67%;
+    top: 25%;
+    display: block;
+	
+}
+
+#K {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 73%;
+    top: 25%;
+    display: block;
+	
+}
+
+#L {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 79%;
+    top: 25%;
+    display: block;
+	
+}
+
+#M {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 85%;
+    top: 25%;
+    display: block;
+	
+}
+
+#N {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 91%;
+    top: 25%;
+    display: block;
+	
+}
+
+#O {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 55%;
+    top: 35%;
+    display: block;
+	
+}
+
+
+#P {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 61%;
+    top: 35%;
+    display: block;
+	
+}
+
+#Q {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 67%;
+    top: 35%;
+    display: block;
+	
+}
+
+#R {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 73%;
+    top: 35%;
+    display: block;
+	
+}
+
+#S {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 79%;
+    top: 35%;
+    display: block;
+	
+}
+
+#T {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 85%;
+    top: 35%;
+    display: block;
+	
+}
+
+#U {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 91%;
+    top: 35%;
+    display: block;
+	
+}
+
+#V {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 59%;
+    top: 45%;
+    display: block;
+	
+}
+
+#W {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 66%;
+    top: 45%;
+    display: block;
+	
+}
+
+#X {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 73%;
+    top: 45%;
+    display: block;
+	
+}
+
+#Y {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 80%;
+    top: 45%;
+    display: block;
+	
+}
+
+#Z {
+	position: absolute;
+    width: 5%;
+    height: 8%;
+    left: 87%;
+    top: 45%;
+    display: block;
+	
+}
+
+
+#alpha {
+	position: absolute;
+    width: 40%;
+    height: 4%;
+    left: 56%;
+    top: 66%;
+    color: black;
+}
+
+#motAffiche {
+	position: absolute;
+    left: 38%;
+    top: 81%;
+    font-size: 475%;
+    color: greenyellow;
+	
+}
+
+#smiley {
+	position: absolute;
+    width: 30%;
+    height: 30%;
+    left: 0%;
+    top: 30%;
+    visibility: hidden;
+}
+
+#dead {
+	position: absolute;
+    width: 78%;
+    height: 13%;
+    left: 15%;
+    top: 80%;
+	box-shadow: 2px 14px 12px 11px black;
+}
+	
+#new button {
+	position: absolute;
+    left: 65%;
+    width: 20%;
+    height: 5%;
+    top: 8%;
+    background-color: #007BFF;
+    Color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 8px 0 black;
+}
+
+
+#face {
+	position: absolute;
+    left: 1114px;
+    top: 68px;
+    width: 37px;
+    height: 37px;
+}
+
+.regle {
+	font-family: Algerian;
+    position: absolute;
+    top: 50px;
+    color: #F60000;
+}
+
+
+#temps {
+	position: absolute;
+    left: 590px;
+    top: 293px;
+    border: 2px solid black;
+    width: 3%;
+    height: 6%;
+    box-shadow: 0px 0px 9px black;
+    color: black;
+    background-color: red;
+    border-radius: 30%;
+	text-align: center;
+}
+
+
+#win {
+	position: absolute;
+    visibility: hidden;
+    margin: 4% 56%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

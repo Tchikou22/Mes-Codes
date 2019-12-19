@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jeu du pendu</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css?" />
+	
+	
+	
+	<script>
+		//var list= ["CHANTER", "BOIRE", "TAPER", "SOLUTION", "POIVRE", "SEL", "ANIMAL", "AVEUGLE", "BANDIT", "BLE","KIOSQUE"]; 
+		//list des mots, la valeur doit renvoyer "var" doit renvoyer 
+		var mot= "";	
+		// mot est vide car nous partons d'un emplacemet vide pour mettre la variable list 
+		var erreurs=0;
+		// Nous partons d'une base de 0 erreur qui vont renvoyer au shéma du pendu
+		var lifes=11;
+		//Nombre de shéma avant la fin du pendu donc nombre de vies disponible
+		
+		var seconde=0;	
+		//fonction liée au tableau, la récupération des mots de manière aléatoire
+		var list;
+		
+	
+		
+		/*const prenom = prompt("Entrez votre nom SVP");
+		alert("Hi, " + prenom + " apparently you have been invited in this game ! we will need to check that!");  
+			
+			var code = prompt("Write you're invited code please... ");
+			if (code.toLowerCase() === "1234") 
+			{						
+				alert( "Thank you, welcome " + prenom + " You have 40 seconds to find the hide word, clic OK to start. Good luck" );
+			}	
+			
+			else		
+			{			
+				alert ("Wrong ! Please contact your admin or reaload the page to have another try")
+				window.location.reload();	
+			}
+		*/
+			
+		
+		
+		
+		var xmlhttp = new XMLHttpRequest(); 						// permet d'envoyer une requete HTTP vers le serveur
+		
+		function init() { 										  //Fonction qui permet d'appeler le fichier JSON sur le serveur
+								
+			var url = 'json/liste.json' 						//URL du fichier json que l'on souhaite recupérer actuellement sur le serveur. On ne met pas http... car une fois sur le serveur, l'emplacement du fichier peut changer
+															   //Permet "d'instancier" donc de creer ou déclarer grace au "new" creer un objet
+			xmlhttp.open('GET', 'json/liste.json');       	  //Permet d'ouvrir une nouvelle requête 
+			xmlhttp.onreadystatechange = requestURL;  		 //Définit la fonction à appeler lors d'un changement d'avancement de la requête AJAX
+			xmlhttp.send();                         	    //Permet d'envoyer notre requette 
+			
+		}
+	
+		function requestURL() { 								       //Permet de récéptionner le fichier JSON
+		  if (xmlhttp.readyState === XMLHttpRequest.DONE) { 		  //Si c'est fait 
+			if (xmlhttp.status === 200) {							 //si il n'y a pas d'erreur
+			  list = JSON.parse(xmlhttp.responseText); 				// Permet de convertir la chaine de caractére dans JSON
+		
+			  start(); 											  //Permet de lancer la fonction pour la traiter
+			} else {
+			  alert('Un problème est survenu avec la requête.');
+			}
+		  }		
+		
+		}
+		
+	
+		function start() //Donne l'ordre au fichier recuperé, lui dire ce qu'il doit en faire
+		
+		{			
+	
+			//Cette fonction a pour but de fournir les mot aléatoirement et de les recupérer grace à la variable "list"
+			var recup = Math.floor((Math.random() * list.length));
+			// le Math.floor a pour but de renvoyer au plus grand entier, /  le Math random a pour but de recupérer un mot dans un tableau aléatoirement. (on dit tableau le fait d'avoir un ensemble ordonné de valeurs. on appel cette fonction Array) 
+			
+		    //lenght est le nombre d'argument, cet argument est écrit pour préciser qu'on prend une valeur de notre tableau jusqu'au nombre maximum de valeur disponible de 0 au maximum.
+			mot=list[recup];
+			var longueur = mot.length;
+			var motAffiche="";		
+			
+			for(i=0; i<longueur; i++) 
+			{
+				motAffiche+="-";
+			}
+			document.getElementById("motAffiche").innerHTML=motAffiche;
+			seconde=40;
+			window.setTimeout("decompte()",1000);
+		}
+		
+	
+		
+		
+		function boutonPendu(valeur) 
+{
+			var bouton=document.getElementById(valeur);
+			var motAffiche = document.getElementById("motAffiche");			
+			bouton.disabled=true;
+			
+			alpha = document.getElementById("alpha");
+			alpha.innerHTML += " " + valeur;
+			
+			var longueurMot = mot.length;
+			var dansLeMot=false;
+			var zoneApres="";
+			for(var i=0; i<longueurMot; i++) 
+			{
+				caractere = mot.substr(i, 1);
+				
+				if(valeur == caractere) 
+				{
+					dansLeMot=true;
+					zoneApres +=valeur;					
+				}										
+				else 
+				{
+					zoneApres+=motAffiche.innerHTML.substr(i,1);					
+				}
+				
+			}
+			 
+			//zone=zoneApres;
+			if(!dansLeMot) 
+			{
+				erreurs++;
+				document.getElementById('p'+erreurs).style.visibility="visible";
+				lifes--;
+			}
+			
+			//permet d'avoir un temps avant d'appeler la fonction "alertee" (pour afficher tous les mots trouvé. 1000= 1seconde)
+			if (mot==zoneApres) 
+			{
+				document.getElementById('win').style.visibility="visible";	
+				window.setTimeout("alertee()",5000);
+				
+										
+			}			
+			
+			//*Permet de placer le mot dans la div "motAffiche".
+			motAffiche.innerHTML = zoneApres;
+			
+			
+			
+			if(lifes==0)
+			{
+				window.setTimeout("alerte()",0);
+			}				
+}
+		function alerte() 
+		{
+			alert("YOU LOSE !");
+			document.getElementById('smiley').style.visibility="visible";			
+			if (confirm( "TRY AGAIN ?" )) 
+			{							
+				window.location.reload();				
+			} 					
+			
+		}
+		
+		//fonction qui permet d'être récupéré par une alerte
+		function alertee() 
+		{ //fonction en dehors de la fonction principal,
+			alert("congratulation you have succed !");	
+								
+			if (confirm( "would you like to play again ?" )) 
+			{							
+				window.location.reload();													
+			} 			
+					
+							
+		}
+		
+		
+		
+		
+		
+		
+		function decompte ()
+		{
+					
+			if(seconde>0) {
+				window.setTimeout("decompte()",1000);
+			}
+			else {
+				alerte();
+				
+					
+			}
+			
+			seconde --;			
+		
+			document.getElementById("temps").innerHTML=seconde;
+
+		
+		}
+		
+		
+		
+		
+	</script>	
+</head>
+
+<body style ="background-color:#F2FEFD" onload="init()">
+
+<center> <h1 style="background-color:aqua"> Bienvenue dans le jeu du pendu !</h1> </center>
+
+<div class="regle"> <p> Pour jouer c'est très simple, séléctionnez une lettre dans la partie droite</p><p>Attention vous n'avez que 11 possibilitées, et 1 minute pour gagner !</p><p> bonne chance !!  <p>
+</div>
+
+<img id="cadre" src="img/cadre.png">
+	
+	<button id="A" onclick="javascript:boutonPendu('A')">A</button>
+	<button id="B" onclick="javascript:boutonPendu('B')">B</button>
+	<button id="C" onclick="javascript:boutonPendu('C')">C</button>
+	<button id="D" onclick="javascript:boutonPendu('D')">D</button>	
+	<button id="E" onclick="javascript:boutonPendu('E')">E</button>	
+	<button id="F" onclick="javascript:boutonPendu('F')">F</button>	
+	<button id="G" onclick="javascript:boutonPendu('G')">G</button>	
+	<button id="H" onclick="javascript:boutonPendu('H')">H</button>	
+	<button id="I" onclick="javascript:boutonPendu('I')">I</button>	
+	<button id="J" onclick="javascript:boutonPendu('J')">J</button>	
+	<button id="K" onclick="javascript:boutonPendu('K')">K</button>	
+	<button id="L" onclick="javascript:boutonPendu('L')">L</button>	
+	<button id="M" onclick="javascript:boutonPendu('M')">M</button>	
+	<button id="N" onclick="javascript:boutonPendu('N')">N</button>		
+	<button id="O" onclick="javascript:boutonPendu('O')">O</button>	
+	<button id="P" onclick="javascript:boutonPendu('P')">P</button>
+	<button id="Q" onclick="javascript:boutonPendu('Q')">Q</button>
+	<button id="R" onclick="javascript:boutonPendu('R')">R</button>
+	<button id="S" onclick="javascript:boutonPendu('S')">S</button>
+	<button id="T" onclick="javascript:boutonPendu('T')">T</button>
+	<button id="U" onclick="javascript:boutonPendu('U')">U</button>
+	<button id="V" onclick="javascript:boutonPendu('V')">V</button>
+	<button id="W" onclick="javascript:boutonPendu('W')">W</button>
+	<button id="X" onclick="javascript:boutonPendu('X')">X</button>
+	<button id="Y" onclick="javascript:boutonPendu('Y')">Y</button>
+	<button id="Z" onclick="javascript:boutonPendu('Z')">Z</button>
+	
+	
+<div id="alpha"></div>
+
+<div id="motAffiche"></div>
+
+<img id ="win" src="img/win.gif">
+
+<div id="new">
+
+
+<button type="button" onclick="javascript:location.reload();">cliquez ici pour relancer la partie  ! </button>	
+	
+  
+	<img id="face" src="img/face.gif">	
+	
+</div>
+
+
+<img id="smiley" src="img/smiley.png">
+
+
+<img id="dead" src="img/dead.png">
+	
+	
+<div id="pendu"> 
+
+	<img id="p1" src="img/bas.png">
+	
+	<img id="p2" src="img/long.png">
+	
+	<img id="p3" src="img/haut.png">
+	
+	<img id="p4" src="img/angle.png">
+	
+	<img id="p5" src="img/support.png">
+
+	<img id="p6" src="img/tete.png">
+
+	<img id="p7" src="img/corps.png">
+
+	<img id="p8" src="img/brasgauche.png">
+
+	<img id="p9" src="img/brasdroit.png">
+
+	<img id="p10" src="img/piedgauche.png">
+
+	<img id="p11" src="img/pieddroit.png">
+	
+</div>
+<div id="temps" >
+</div>	
+	
+</body>
+</html>

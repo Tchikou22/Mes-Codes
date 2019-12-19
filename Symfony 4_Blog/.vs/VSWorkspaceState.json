@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Controller",
+    "\\src\\Entity",
+    "\\src\\Security",
+    "\\templates",
+    "\\templates\\registration",
+    "\\templates\\security"
+  ],
+  "SelectedNode": "\\templates\\security\\login.html.twig",
+  "PreviewInSolutionExplorer": false
+}
